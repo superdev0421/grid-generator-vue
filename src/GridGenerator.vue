@@ -1,7 +1,7 @@
 <template>
   <main class="bg-gray w-full min-h-[100vh] pt-[52px] mx-auto">
     <div class="mx-auto max-w-[612px] px-4">
-      <h1 class="font-serif font-bold text-header tracking-tighter">
+      <h1 class="font-serif font-bold text-header tracking-tight">
         Grid Generator
       </h1>
       <InputForm @submit="onSubmit" />
@@ -27,13 +27,6 @@ export default {
       numGrids: 0,
       gridSize: 0,
     };
-  },
-
-  computed: {
-    gridClass() {
-      const cols = this.numGrids > 0 ? this.numGrids : 1;
-      return `grid-cols-${cols}`;
-    },
   },
 
   methods: {

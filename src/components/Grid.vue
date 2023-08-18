@@ -3,13 +3,14 @@
     class="
       grid
       gap-3
+      p-3
+      mb-9
       w-[372px]
       h-[372px]
       mx-auto
       bg-black
-      p-3
-      mb-4
-      shadow-[0_4_4_0_#000_6.25%]
+      rounded
+      shadow-md
     "
     :class="gridClass"
   >
@@ -20,8 +21,6 @@
         flex
         justify-center
         items-center
-        border
-        p-2
         text-center
         font-black
         text-grid-item
@@ -53,6 +52,7 @@ export default {
   setup(props) {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+    // Generate unique letters
     const letters = computed(() => {
       const array = [];
 

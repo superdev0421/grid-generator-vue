@@ -26,9 +26,10 @@ export default defineConfig({
     },
     colors: {
       gray: '#CCCCCC',
-      'dark-gray': '#CED4DA',
+      primary: '#0D6EFD',
     },
     fontSize: {
+      xs: ['12px', '16.34px'],
       header: ['48px', '63.3px'],
       'grid-item': ['36px', '47.48px'],
     },

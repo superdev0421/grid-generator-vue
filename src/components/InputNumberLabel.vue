@@ -6,7 +6,15 @@
 
     <input
       type="number"
-      class="border px-[13px] py-[7px] w-[56px] rounded"
+      class="
+        px-[13px]
+        py-[7px]
+        w-[56px]
+        rounded
+        text-[#CED4DA]
+        border border-[#CED4DA]
+        outline-none
+      "
       :max="max"
       v-model.number="internalValue"
     />

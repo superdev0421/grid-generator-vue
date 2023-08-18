@@ -2,19 +2,18 @@
   <form
     @submit.prevent="onSubmit"
     class="
-      flex
-      rounded
-      bg-white
-      flex-col
+      flex flex-col
       md:flex-row
+      justify-between
       gap-3
       p-3
-      justify-between
+      rounded
+      bg-white
       font-400
-      shadow-[0_4_4_0_#000_6.25%]
+      shadow-md
     "
   >
-    <div class="flex gap-3 flex-col md:flex-row md:gap-1">
+    <div class="flex flex-col gap-3 md:flex-row md:gap-[2px]">
       <InputNumberLabel
         startLabel="Generate"
         endLabel="random grids,"
@@ -33,10 +32,10 @@
     <button
       class="
         font-serif
-        bg-blue-500
+        bg-primary
         text-white
-        px-4
-        py-2
+        px-[13px]
+        py-[7px]
         rounded
         disabled:opacity-50
       "
