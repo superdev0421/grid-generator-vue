@@ -50,23 +50,23 @@ export default {
   },
 
   setup(props) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const ITERATION_NUMBER = 100; // Set constant for number of iterations for getting random unique letters
+    let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
     // Generate unique letters
     const letters = computed(() => {
       const array = [];
 
-      for (let i = 0; i < props.size * props.size; i++) {
-        let letter;
+      for (let i = 0; i < ITERATION_NUMBER; i++) {
+        // Get random indexes in alphabet
+        const idx1 = Math.floor(Math.random() * (alphabet.length - 1));
+        const idx2 = Math.floor(Math.random() * (alphabet.length - 1));
 
-        do {
-          letter = alphabet[Math.floor(Math.random() * alphabet.length)];
-        } while (array.includes(letter));
-
-        array.push(letter);
+        // Swap letters at random indexes to shuffle
+        [alphabet[idx1], alphabet[idx2]] = [alphabet[idx2], alphabet[idx1]];
       }
 
-      return array;
+      return alphabet.slice(0, props.size * props.size);
     });
 
     return { letters };
