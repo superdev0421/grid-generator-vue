@@ -3,3 +3,14 @@
 body {
   @apply font-sans;
 }
+
+@mixin generate-grid($rows, $cols) {
+  .grid-rows-#{$rows}.grid-cols-#{$cols} {
+    grid-template-rows: repeat(#{$rows}, minmax(0, 1fr)); 
+    grid-template-columns: repeat(#{$cols}, minmax(0, 1fr));
+  }
+}
+
+@for $i from 1 through 5 {
+  @include generate-grid($i, $i); 
+}

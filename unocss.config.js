@@ -19,5 +19,19 @@ export default defineConfig({
       },
     }),
   ],
+  theme: {
+    breakpoints: {
+      sm: '375px',
+      md: '768px',
+    },
+    colors: {
+      gray: '#CCCCCC',
+      'dark-gray': '#CED4DA',
+    },
+    fontSize: {
+      header: ['48px', '63.3px'],
+      'grid-item': ['36px', '47.48px'],
+    },
+  },
   transformers: [transformerDirectives(), transformerVariantGroup()],
 });

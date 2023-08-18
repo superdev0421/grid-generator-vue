@@ -1,55 +1,80 @@
 <template>
-  <div class="input-form">
-    <div class="form-field">
-      <label for="num-grids">Number of grids:</label>
-      <input
-        id="num-grids"
-        v-model.numer="numGrids"
-        type="number"
-        min="1"
-        max="5"
+  <form
+    @submit.prevent="onSubmit"
+    class="
+      flex
+      rounded
+      bg-white
+      flex-col
+      md:flex-row
+      gap-3
+      p-3
+      justify-between
+      font-400
+      shadow-[0_4_4_0_#000_6.25%]
+    "
+  >
+    <div class="flex gap-3 flex-col md:flex-row md:gap-1">
+      <InputNumberLabel
+        startLabel="Generate"
+        endLabel="random grids,"
+        v-model="numGrids"
+        :max="5"
+      />
+
+      <InputNumberLabel
+        startLabel="each with"
+        endLabel="rows/columns."
+        v-model="gridSize"
+        :max="5"
       />
     </div>
-    <div class="form-field">
-      <label for="grid-size">Grid size:</label>
-      <input
-        id="grid-size"
-        v-model.numer="gridSize"
-        type="number"
-        min="1"
-        max="5"
-      />
-    </div>
-    <button :disabled="!canGenerate" @click="generateGrids"></button>
-  </div>
+
+    <button
+      class="
+        font-serif
+        bg-blue-500
+        text-white
+        px-4
+        py-2
+        rounded
+        disabled:opacity-50
+      "
+      :disabled="!canSubmit"
+    >
+      Generate
+    </button>
+  </form>
 </template>
 
 <script>
+import InputNumberLabel from './InputNumberLabel.vue';
+
 export default {
+  components: {
+    InputNumberLabel,
+  },
+
   data() {
-    return: {
-      numGrids: 3,
-      gridSize: 5,
+    return {
+      numGrids: 0,
+      gridSize: 0,
     };
   },
 
   computed: {
-    canGenerate() {
+    canSubmit() {
       return this.numGrids > 0 && this.gridSize > 0;
-    }
+    },
   },
 
   methods: {
-    generateGrids() {
-      // Emit event
-    }
-  }
-}
+    onSubmit() {
+      this.$emit('submit', {
+        numGrids: this.numGrids,
+        gridSize: this.gridSize,
+      });
+    },
+  },
+};
 </script>
-
-<style scoped>
-.input-form {
-  display: flex;
-  align-items: center;
-}
-</style>
